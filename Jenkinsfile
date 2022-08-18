@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Deploying on slave2') {
             steps {
-                sh 'mv index.html /var/www/html'
+                sh 'mv build/ /var/www/html'
             }
         }
     }
