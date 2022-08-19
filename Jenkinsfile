@@ -22,16 +22,12 @@ pipeline {
         stage('Hello') {
             steps {
                 sh '''
-                export aws_region=${AWS_REGION}
-                export aws_access_key_id=${aws_access_key_id}
-                export aws_secret_key=${aws_secret_key}
-                echo $aws_region
+                export AWS_DEFAULT_REGION=${AWS_REGION}
+                export AWS_ACCESS_KEY_ID=${aws_access_key_id}
+                export AWS_SECRET_ACCESS_KEY=${aws_secret_key}
                  '''              
                 
-                sh '''aws configure aws_access_key_id $aws_access_key_id
-                    aws configure aws_secret_key $aws_secret_key
-                    aws configure default.region $aws_region
-                    aws cloudformation deploy --template cloudformationstack.yml --stack-name Rameez-stack'''
+                sh '''aws cloudformation deploy --template cloudformationstack.yml --stack-name Rameez-stack'''
                 }
         }
     }
