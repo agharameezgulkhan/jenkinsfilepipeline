@@ -4,5 +4,6 @@ Description: Jenkins Pipeline
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
     Properties:
-      BucketName: rameezcfmnmnm-bucket
+      BucketName: rameezcf-bucket
