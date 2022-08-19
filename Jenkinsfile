@@ -20,7 +20,8 @@ pipeline {
         stage('Hello') {
             steps {
                 sh '''
-                echo $AWS_REGION
+                export aws_region=${AWS_REGION}
+                echo $aws_region
                  '''              
                 
                 // sh '''aws configure aws_access_key_id $aws_access_key_id
