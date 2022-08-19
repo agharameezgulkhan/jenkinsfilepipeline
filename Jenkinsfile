@@ -1,9 +1,10 @@
 pipeline {
-    agent {label 'slave2'}
+    agent any
+
     stages {
-        stage('Deploying on slave2') {
+        stage('Deploying Cloudformation Stack') {
             steps {
-                sh 'mv index.html /var/www/html'
+                sh 'aws cloudformation deploy --template cloudformationstack.yml --stack-name Rameez-Stack'
             }
         }
     }
