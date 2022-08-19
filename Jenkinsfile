@@ -16,7 +16,7 @@ pipeline {
         stage('Hello') {
             steps {
                 withCredentials([string(credentialsId: 'aws_access_key_id', variable: 'aws_access_key_id'), string(credentialsId: 'aws_secret_access_key', variable: 'aws_secret_access_key'), string(credentialsId: 'aws_region', variable: 'aws_region')]) {
-                withEnv(['aws_region = $aws_region']) {
+                withEnv(['aws_region = ${aws_region}']) {
                     sh '''
                     echo $aws_region 
                     '''
